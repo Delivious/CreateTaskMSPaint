@@ -8,44 +8,46 @@ def selectColorLoop(run):
       selectColor(num0,num1,num2,num3,num4,num5,num6,num7,num8,num9,comma)
 def selectColor(num0,num1,num2,num3,num4,num5,num6,num7,num8,num9,comma,backs):
     global typedColor, waitTime
-    waitTime=0.25
+    currTime=time.time()
     typedColor=""
-    if customColor:
-        if num0:
-            typedColor+="0"
-            time.sleep(0.25)
-        if num1:
-            typedColor+="1"
-            time.sleep(0.25)
-        if num2:
-            typedColor+="2"
-            time.sleep(0.25)
-        if num3:
-            typedColor+="3"
-            time.sleep(0.25)
-        if num4:
-            typedColor+="4"
-            time.sleep(0.25)
-        if num5:
-            typedColor+="5"
-            time.sleep(0.25)
-        if num6:
-            typedColor+="6"
-            time.sleep(0.25)
-        if num7:
-            typedColor+="7"
-            time.sleep(0.25)
-        if num8:
-            typedColor+="8"
-            time.sleep(0.25)
-        if num9:
-            typedColor+="9"
-            time.sleep(0.25)
-        if comma:
-            typedColor+=","
-            time.sleep(0.25)
-        if backspace:
-            typedColor-=typedColor[-1]
+    if currTime - lastPrint > 100:
+        if customColor:
+            if num0:
+                typedColor+="0"
+                lastPrint=currTime
+            if num1:
+                typedColor+="1"
+                lastPrint=currTime
+            if num2:
+                typedColor+="2"
+                lastPrint=currTime
+            if num3:
+                typedColor+="3"
+                lastPrint=currTime
+            if num4:
+                typedColor+="4"
+                lastPrint=currTime
+            if num5:
+                typedColor+="5"
+                lastPrint=currTime
+            if num6:
+                typedColor+="6"
+                lastPrint=currTime
+            if num7:
+                typedColor+="7"
+                lastPrint=currTime
+            if num8:
+                typedColor+="8"
+                lastPrint=currTime
+            if num9:
+                typedColor+="9"
+                lastPrint=currTime
+            if comma:
+                typedColor+=","
+                lastPrint=currTime
+            if backspace:
+                typedColor-=typedColor[-1]
+                lastPrint=currTime
 
 pygame.init()
 BLACK=(0,0,0)
@@ -67,6 +69,7 @@ clock = pygame.time.Clock()
 run = True
 customColor=False
 selctColorThread=threading.Thread(target=selectColorLoop, args=(run), daemon=True)
+selctColorThread.start()
 while run:
     window.fill((120, 120, 120))
     screen.blit()
