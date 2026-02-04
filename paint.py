@@ -2,7 +2,7 @@ import pygame
 import threading
 import time
 
-def selectColorLoop(run):
+def selectColorLoop(run): 
    global num0,num1,num2,num3,num4,num5,num6,num7,num8,num9,comma,customColor,backspace
    while run:
       selectColor(num0,num1,num2,num3,num4,num5,num6,num7,num8,num9,comma)
