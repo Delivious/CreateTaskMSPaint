@@ -54,7 +54,6 @@ while keep_playing==True:
     if event.type == pygame.QUIT: 
       keep_playing = False
   #vars in loop
-  text = font.render("score: "+str(score), True, (0, 128, 0))
 
   #add your key press code here
 
