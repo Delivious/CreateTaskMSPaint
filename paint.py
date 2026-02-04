@@ -1,11 +1,52 @@
 import pygame
 import threading
+import time
+
 def selectColorLoop(run):
-   global num0,num1,num2,num3,num4,num5,num6,num7,num8,num9,comma,customColor
+   global num0,num1,num2,num3,num4,num5,num6,num7,num8,num9,comma,customColor,backspace
    while run:
       selectColor(num0,num1,num2,num3,num4,num5,num6,num7,num8,num9,comma)
-def selectColor(num0,num1,num2,num3,num4,num5,num6,num7,num8,num9,comma):
-    acceptedInputs=["0","1","2","3","4","5","6","7","8","9",","]
+def selectColor(num0,num1,num2,num3,num4,num5,num6,num7,num8,num9,comma,backs):
+    global typedColor, waitTime
+    waitTime=0.25
+    typedColor=""
+    if customColor:
+        if num0:
+            typedColor+="0"
+            time.sleep(0.25)
+        if num1:
+            typedColor+="1"
+            time.sleep(0.25)
+        if num2:
+            typedColor+="2"
+            time.sleep(0.25)
+        if num3:
+            typedColor+="3"
+            time.sleep(0.25)
+        if num4:
+            typedColor+="4"
+            time.sleep(0.25)
+        if num5:
+            typedColor+="5"
+            time.sleep(0.25)
+        if num6:
+            typedColor+="6"
+            time.sleep(0.25)
+        if num7:
+            typedColor+="7"
+            time.sleep(0.25)
+        if num8:
+            typedColor+="8"
+            time.sleep(0.25)
+        if num9:
+            typedColor+="9"
+            time.sleep(0.25)
+        if comma:
+            typedColor+=","
+            time.sleep(0.25)
+        if backspace:
+            typedColor-=typedColor[-1]
+
 pygame.init()
 BLACK=(0,0,0)
 WHITE=(255,255,255)
@@ -15,6 +56,7 @@ RED=(255,0,0)
 ORANGE=(255,255,0)
 PURPLE=(255,0,255)
 YELLOW=(0,255,255)
+customColorText=pygame.font.render(f"({typedColor})", True, BLACK, background=None)
 screen = pygame.display.set_mode((1000,1000))
 customColorRect=pygame.rect(100,100,100,100)
 keys=pygame.pygame.get_pressed()
@@ -44,6 +86,7 @@ while run:
     num8=keys[pygame.K_8]
     num9=keys[pygame.K_9]
     comma=keys[pygame.K_COMMA]
+    backspace=keys[pygame.K_BACKSPACE]
     if keys[pygame.K_LCTRL] and keys[pygame.K_c]:
         customColor=not customColor
 pygame.quit()
