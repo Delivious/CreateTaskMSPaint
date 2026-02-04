@@ -10,8 +10,8 @@ os.environ['SDL_VIDEO_WINDOW_POS'] = "%d,%d" % (0,0)
 pygame.init() 
 
 #variables for screen size: 
-screen_width=690 
-screen_height=290
+screen_width=1380
+screen_height=580
 
 
 #color code constants 
