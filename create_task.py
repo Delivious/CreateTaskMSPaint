@@ -25,7 +25,7 @@ PURPLE=(255,0,255)
 YELLOW=(0,255,255)
 
 #other variable initializers (fonts, text, images, etc)
-
+font = pygame.font.SysFont("comicsansms", 72)
 
 
 def instructions():
