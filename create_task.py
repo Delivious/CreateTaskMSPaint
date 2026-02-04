@@ -14,10 +14,6 @@ screen_width=690
 screen_height=290
 
 
-amout = int(input("how many players"))
-for a in range(amout):
-  newp = input("player "+str(a+1)+" what is your name")
-  players.append(newp)
 #color code constants 
 BLACK=(0,0,0)
 WHITE=(255,255,255)
